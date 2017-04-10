@@ -2,59 +2,78 @@
 if 0 | endif
 
 if &compatible
-set nocompatible               " Be iMproved
+  set nocompatible               " Be iMproved
+endif
+
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=/home/brohloff/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+if dein#load_state('/home/brohloff/.vim/bundles')
+  call dein#begin('/home/brohloff/.vim/bundles')
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/brohloff/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
-" My Bundles here:
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
 
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+  " My Bundles here:
+  call dein#add( 'kien/ctrlp.vim' )
+  call dein#add( 'Shougo/unite.vim' )
+  call dein#add( 'tpope/vim-fugitive' )
+  call dein#add( 'vim-airline/vim-airline' )
+  call dein#add( 'vim-airline/vim-airline-themes' )
 
-call neobundle#end()
+
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   " Required:
-  filetype plugin indent on
+  call dein#end()
+  call dein#save_state()
+endif
 
-  " If there are uninstalled bundles found on startup,
-  " this will conveniently prompt you to install them.
-  NeoBundleCheck
+" Required:
+filetype plugin indent on
+syntax enable
 
-  " Airline Settings
-  " ----------------
-  " Show vim-airline bar the whole time
-  set laststatus=2
-  set encoding=utf-8
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline
-  let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'solarized'
-  let g:airline_extensions = ['branch', 'tabline']
-  " ----------------
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+
+" Airline Settings
+" ----------------
+" Show vim-airline bar the whole time
+set laststatus=2
+set encoding=utf-8
+set guifont=Droid\ Sans\ Mono\ for\ Powerline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+let g:airline_extensions = ['branch', 'tabline']
+" ----------------
 
 
- " Reload files which where modified outside of VIM
- if !exists("autocommands_loaded")
-   let autocommands_loaded=1
-   autocmd BufEnter * checktime
- endif
+" Reload files which where modified outside of VIM
+if !exists("autocommands_loaded")
+  let autocommands_loaded=1
+  autocmd BufEnter * checktime
+endif
 
-  set wildmenu
-  set relativenumber
-  set number
-  set smartindent
-  set tabstop=4
-  set shiftwidth=2
+set wildmenu
+set relativenumber
+set number
+set smartindent
+set tabstop=4
+set shiftwidth=2
