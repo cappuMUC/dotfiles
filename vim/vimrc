@@ -1,11 +1,6 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -53,8 +48,7 @@ syntax enable
 
 "End dein Scripts-------------------------
 
-" Airline Settings
-" ----------------
+"Airline Settings-------------------------
 " Show vim-airline bar the whole time
 set laststatus=2
 set encoding=utf-8
@@ -62,7 +56,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'sol'
 let g:airline_extensions = ['branch', 'tabline']
-" ----------------
+"End Airline Settings---------------------
 
 
 " Reload files which where modified outside of VIM
@@ -77,3 +71,6 @@ set number
 set smartindent
 set tabstop=4
 set shiftwidth=2
+
+" Source vim config in the local directory
+silent! so .vimlocal
