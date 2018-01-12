@@ -65,6 +65,7 @@ if !exists("autocommands_loaded")
   autocmd BufEnter * checktime
 endif
 
+set path=$PWD/**
 set wildmenu
 set relativenumber
 set number
