@@ -65,13 +65,15 @@ if !exists("autocommands_loaded")
   autocmd BufEnter * checktime
 endif
 
+" Changes to the default settings of VIM
 set path=$PWD/**
 set wildmenu
 set relativenumber
 set number
 set smartindent
-set tabstop=4
+set tabstop=2
 set shiftwidth=2
+set expandtab
 
 " Source vim config in the local directory
 silent! so .vimlocal
