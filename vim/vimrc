@@ -1,5 +1,10 @@
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
+
+" ----------------
+" Plugins & Setups
+" ----------------
 
 "dein Scripts-----------------------------
 if &compatible
@@ -59,26 +64,31 @@ let g:airline_extensions = ['branch', 'tabline']
 "End Airline Settings---------------------
 
 
+
+" -----------------------
+" VIM Basic Configuration
+" -----------------------
+
 " Reload files which where modified outside of VIM
 if !exists("autocommands_loaded")
   let autocommands_loaded=1
   autocmd BufEnter * checktime
 endif
 
-" Changes to the default settings of VIM
-set path=$PWD/**
+" UX settings ------------
+set path=$PWD/** " search in current folder and subfolders
 set wildmenu
 set relativenumber
 set number
+
+" formatting settins ----
 set smartindent
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set expandtab " use spaces for tabs
 
 " Tweaks for file browsing
-let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_altv=1
+let g:netrw_banner=1
 let g:netrw_liststyle=3
 
 " Source vim config in the local directory
