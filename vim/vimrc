@@ -1,67 +1,30 @@
-
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-" ----------------
-" Plugins & Setups
-" ----------------
-
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+" Autoinstall vim-plug 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Required:
-set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
+" Plugin sources -------------------------
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive' 
+Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline-themes' 
+Plug 'morhetz/gruvbox'
+call plug#end()
 
-" Required:
-if dein#load_state('~/.vim/bundles')
-  call dein#begin('~/.vim/bundles')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-
-  " My Bundles here:
-  call dein#add( 'kien/ctrlp.vim' )
-  call dein#add( 'Shougo/unite.vim' )
-  call dein#add( 'tpope/vim-fugitive' )
-  call dein#add( 'vim-airline/vim-airline' )
-  call dein#add( 'vim-airline/vim-airline-themes' )
-
-
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
-"End dein Scripts-------------------------
-
-"Airline Settings-------------------------
+" Airline Settings-------------------------
 " Show vim-airline bar the whole time
 set laststatus=2
 set encoding=utf-8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline
+set guifont=Droid\ Sans\ Mono\ Powerline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'sol'
+let g:airline_theme = 'minimalist'
 let g:airline_extensions = ['branch', 'tabline']
-"End Airline Settings---------------------
+" End Airline Settings---------------------
 
 
 
@@ -82,6 +45,9 @@ set wildmenu
 set relativenumber
 set number
 set hlsearch
+
+colorscheme gruvbox
+set background=dark
 
 " formatting settins ----
 set smartindent
