@@ -89,6 +89,8 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab " use spaces for tabs
 
+set colorcolumn=80
+
 " Tweaks for file browsing
 let g:netrw_banner=1
 let g:netrw_liststyle=3
