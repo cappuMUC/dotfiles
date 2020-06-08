@@ -81,6 +81,7 @@ set wildignore+=*.o,*.d,*.obj,*.pdf
 set wildmenu
 set relativenumber
 set number
+set hlsearch
 
 " formatting settins ----
 set smartindent
