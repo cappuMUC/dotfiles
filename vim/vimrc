@@ -16,15 +16,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
-"Airline Settings-------------------------
+" Airline Settings-------------------------
 " Show vim-airline bar the whole time
 set laststatus=2
 set encoding=utf-8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline
+set guifont=Droid\ Sans\ Mono\ Powerline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'sol'
+let g:airline_theme = 'minimalist'
 let g:airline_extensions = ['branch', 'tabline']
-"End Airline Settings---------------------
+" End Airline Settings---------------------
 
 
 
