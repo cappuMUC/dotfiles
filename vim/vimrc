@@ -85,7 +85,7 @@ set hlsearch
 
 " formatting settins ----
 set smartindent
-set tabstop=2
+set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab " use spaces for tabs
 
