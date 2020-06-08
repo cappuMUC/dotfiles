@@ -43,6 +43,8 @@ set path=$PWD/** " search in current folder and subfolders
 set wildmenu
 set relativenumber
 set number
+colorscheme gruvbox
+set background=dark
 
 " formatting settins ----
 set smartindent
