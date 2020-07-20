@@ -38,6 +38,13 @@ if !exists("autocommands_loaded")
   autocmd BufEnter * checktime
 endif
 
+" BASICS -----------------
+set nocompatible
+
+" syntax and plugins for netrw
+syntax enable
+filetype plugin on
+
 " UX settings ------------
 set path=$PWD/** " search in current folder and subfolders
 set wildignore+=*.o,*.d,*.obj,*.pdf
@@ -45,6 +52,7 @@ set wildmenu
 set relativenumber
 set number
 set hlsearch
+set incsearch
 
 colorscheme gruvbox
 set background=dark
