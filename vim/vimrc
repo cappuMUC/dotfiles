@@ -1,5 +1,47 @@
+" BASICS SETTINGS
+" ------------------------------------------------------------------------------
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
+
+" Reload files which where modified outside of VIM
+if !exists("autocommands_loaded")
+  let autocommands_loaded=1
+  autocmd BufEnter * checktime
+endif
+
+set nocompatible
+
+" Syntax and plugins for netrw
+syntax enable
+filetype plugin on
+
+" Tweaks for file browsing
+let g:netrw_banner=1
+let g:netrw_liststyle=3
+
+" UX settings 
+set path=$PWD/** " search in current folder and subfolders
+set wildignore+=*.o,*.d,*.obj,*.pdf
+set wildmenu
+set relativenumber
+set number
+set hlsearch
+set incsearch
+
+
+" Formatting
+set smartindent
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab " use spaces for tabs
+
+set colorcolumn=80
+
+
+
+" PLUGIN INSTALLER
+" ------------------------------------------------------------------------------
 
 " Autoinstall vim-plug 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -8,7 +50,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugin sources -------------------------
+" Plugins to install
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive' 
 Plug 'vim-airline/vim-airline' 
@@ -16,7 +58,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
-" Airline Settings-------------------------
+
+" PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
 " Show vim-airline bar the whole time
 set laststatus=2
 set encoding=utf-8
@@ -27,47 +72,8 @@ let g:airline_extensions = ['branch', 'tabline']
 " End Airline Settings---------------------
 
 
-
-" -----------------------
-" VIM Basic Configuration
-" -----------------------
-
-" Reload files which where modified outside of VIM
-if !exists("autocommands_loaded")
-  let autocommands_loaded=1
-  autocmd BufEnter * checktime
-endif
-
-" BASICS -----------------
-set nocompatible
-
-" syntax and plugins for netrw
-syntax enable
-filetype plugin on
-
-" UX settings ------------
-set path=$PWD/** " search in current folder and subfolders
-set wildignore+=*.o,*.d,*.obj,*.pdf
-set wildmenu
-set relativenumber
-set number
-set hlsearch
-set incsearch
-
 colorscheme gruvbox
 set background=dark
-
-" formatting settins ----
-set smartindent
-set tabstop=2 softtabstop=2
-set shiftwidth=2
-set expandtab " use spaces for tabs
-
-set colorcolumn=80
-
-" Tweaks for file browsing
-let g:netrw_banner=1
-let g:netrw_liststyle=3
 
 " Source vim config in the local directory
 silent! so .vimlocal
