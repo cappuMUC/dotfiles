@@ -3,6 +3,7 @@
 #determine path of dotfiles repository
 SCRIPT_PATH=$(readlink -f "$0")
 SCRIPT_FOLDER=$(dirname $SCRIPT_PATH)
+POWERLINE_FONTS_PATH="https://github.com/powerline/fonts.git"
 
 # create folder for dein.vim plugin manager
 DEIN_DOT_VIM_PATH="$HOME/.vim/bundles"
@@ -11,7 +12,7 @@ mkdir -p $DEIN_DOT_VIM_PATH
 
 #install powerline fonts
 # clone
-git clone https://github.com/powerline/fonts.git
+git clone $POWERLINE_FONTS_PATH
 # install
 cd fonts
 ./install.sh
